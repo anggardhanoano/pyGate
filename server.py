@@ -2,8 +2,8 @@ import falcon
 from falcon_multipart.middleware import MultipartMiddleware
 from wsgiref import simple_server
 
-from utils import GatewayUtil
-from gateway import GatewayResource
+from gateway.utils import GatewayUtil
+from gateway.resource import GatewayResource
 # falcon.API instances are callable WSGI apps
 app = falcon.API(middleware=[
     MultipartMiddleware()

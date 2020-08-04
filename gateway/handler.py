@@ -1,8 +1,8 @@
 import falcon
 import requests
 
-from constant import STATUS_CODE
-from authentication import authentication_handler, request_validation
+from .constant import STATUS_CODE
+from .authentication import authentication_handler, request_validation
 
 
 REQUEST_METHOD = {

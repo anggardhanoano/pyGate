@@ -1,6 +1,6 @@
 import falcon
 import jwt
-from constant import JWT_SETTINGS
+from .constant import JWT_SETTINGS
 
 def decode_jwt_header(jwt_token):
     try:

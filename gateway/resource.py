@@ -2,7 +2,7 @@
 import falcon
 import requests
 
-from handler import *
+from .handler import *
 # Falcon follows the REST architectural style, meaning (among
 # other things) that you think in terms of resources and state
 # transitions, which map to HTTP verbs.
