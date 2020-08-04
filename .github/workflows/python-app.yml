@@ -34,4 +34,4 @@ jobs:
     - name: Test with pytest
       run: |
          coverage run -m --source=./gateway pytest tests.py
-         codecov --token=7df56bfe-6d6a-4c34-946a-d618b0ca76c6
+         codecov --token=e26b4325-a905-410a-b5a9-dcd4239d932a
