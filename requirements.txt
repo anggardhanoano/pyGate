@@ -1,6 +1,7 @@
 attrs==19.3.0
 certifi==2020.6.20
 chardet==3.0.4
+codecov==2.1.7
 coverage==5.2.1
 falcon==2.0.0
 falcon-multipart==0.2.0
