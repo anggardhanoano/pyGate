@@ -1,0 +1,25 @@
+{
+    "services": [
+        {
+            "service_name": "auth",
+            "gateway_url": "auth",
+            "route": [
+                {
+                    "url": "login",
+                    "baseurl": "http://localhost:8080/api/v1/auth/login/",
+                    "jwt_secure": false
+                },
+                {
+                    "url": "refresh",
+                    "baseurl": "http://localhost:8080/api/v1/auth/refresh-token/",
+                    "jwt_secure": true
+                },
+                {
+                    "url": "google",
+                    "baseurl": "http://localhost:8080/api/v1/auth/google/",
+                    "jwt_secure": false 
+                }
+            ]
+        }
+    ]
+}
