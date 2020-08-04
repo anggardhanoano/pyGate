@@ -60,6 +60,6 @@ STATUS_CODE = {
 # TODO
 # add your authentication service jwt settings
 JWT_SETTINGS = {
-    "JWT_KEY": None,
+    "JWT_KEY": "absolutelysecret",
     "PUBLIC_KEY": None
 }

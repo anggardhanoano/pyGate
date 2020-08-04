@@ -1,0 +1,72 @@
+{
+    "services": [
+        {
+            "service_name": "httpbin",
+            "gateway_url": "testing",
+            "route": [
+                {
+                    "url": "post",
+                    "baseurl": "https://httpbin.org/post",
+                    "jwt_secure": false
+                },
+                {
+                    "url": "get",
+                    "baseurl": "https://httpbin.org/get",
+                    "jwt_secure": false
+                },
+                {
+                    "url": "delete",
+                    "baseurl": "https://httpbin.org/delete",
+                    "jwt_secure": false 
+                },
+                {
+                    "url": "put",
+                    "baseurl": "https://httpbin.org/put",
+                    "jwt_secure": false 
+                },
+                {
+                    "url": "patch",
+                    "baseurl": "https://httpbin.org/patch",
+                    "jwt_secure": false 
+                },
+                {
+                    "url": "param/{code}",
+                    "baseurl": "https://httpbin.org/status/{code}",
+                    "jwt_secure": false 
+                }
+            ]
+        },
+        {
+            "service_name": "httpbin-private",
+            "gateway_url": "testing-private",
+            "route": [
+                {
+                    "url": "post",
+                    "baseurl": "https://httpbin.org/post",
+                    "jwt_secure": true
+                },
+                {
+                    "url": "get",
+                    "baseurl": "https://httpbin.org/get",
+                    "jwt_secure": true
+                }
+            ]
+        },
+        {
+            "service_name": "local",
+            "gateway_url": "local",
+            "route": [
+                {
+                    "url": "post",
+                    "baseurl": "http://localhost:1234",
+                    "jwt_secure": false
+                },
+                {
+                    "url": "hai",
+                    "baseurl": "http://falconframework.org/local/hai",
+                    "jwt_secure": false
+                }
+            ]
+        }
+    ]
+}

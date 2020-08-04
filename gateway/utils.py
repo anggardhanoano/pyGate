@@ -6,15 +6,15 @@ class GatewayUtil:
     services = []
     urls = []
     
-    def __init__(self):
-        self.services = self.read_services()
+    def __init__(self, service_json):
+        self.services = self.read_services(service_json)
         self.urls = self.generate_service_url()
     
-    def read_services(self):
+    def read_services(self, service_json):
 
         services = []
 
-        f = open('service.json')     
+        f = open(service_json)     
         data = json.load(f) 
         f.close() 
 

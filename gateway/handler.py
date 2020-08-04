@@ -59,13 +59,17 @@ def request_handler(url, request, jwt_secure, parameter):
     if is_save and is_authorize:
         try:
             response = REQUEST_METHOD[request.method](service_url, data=data, files=files, headers=headers)
-
-            return {
-                "data": response.json(),
-                "status_code": response.status_code
-            }
+            
+            try:
+                return {
+                    "data": response.json(),
+                    "status_code": response.status_code
+                }
+            except:
+                return {
+                    "data": "OK",
+                    "status_code": response.status_code
+                }
         except Exception as error:
-            raise falcon.HTTPGatewayTimeout(title="Service Error", description=str(error))
-    
-    return None
-        
+            print(str(error))
+            raise falcon.HTTPGatewayTimeout(title="Service Error", description=str(error))    

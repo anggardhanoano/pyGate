@@ -22,7 +22,6 @@ def authentication_handler(request, jwt_secure):
     elif jwt_secure and request.get_header('Authorization') is None:
         raise falcon.HTTPUnauthorized(title="AUTHORIZATION missing", description="AUTHORIZATION header missing")
     else:
-        # clean header from Bearer
         jwt_token = request.get_header('Authorization').split()[1]
         decode, msg = decode_jwt_header(jwt_token)
         if decode is None:
@@ -30,6 +29,8 @@ def authentication_handler(request, jwt_secure):
         return True, request.get_header('Authorization')
 
 def request_validation(request, url):
+    print(request.uri)
+    print(url)
     if request.uri == url:
         raise falcon.HTTPLoopDetected(title="loop request", description="can't make request because infinite loop")
     else:

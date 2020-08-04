@@ -5,23 +5,28 @@ from wsgiref import simple_server
 from gateway.utils import GatewayUtil
 from gateway.resource import GatewayResource
 # falcon.API instances are callable WSGI apps
-app = falcon.API(middleware=[
-    MultipartMiddleware()
-])
 
 
-gateway = GatewayUtil()
+def create_server(service_json):
+    app = falcon.API(middleware=[
+        MultipartMiddleware()
+    ])
 
-urls = gateway.urls
+    gateway = GatewayUtil(service_json)
 
-for url in urls:
-    resource = GatewayResource(url["service_url"], url["jwt_secure"])
-    app.add_route(url["url"], resource)
+    urls = gateway.urls
+    for url in urls:
+        resource = GatewayResource(url["service_url"], url["jwt_secure"])
+        app.add_route(url["url"], resource)
+    
+    return app, urls
 
 if __name__ == '__main__':
 
     host = '127.0.0.1'
     port = 8000
+
+    app, urls = create_server('service.json')
 
     print('=================================================================================')
     print("GATEWAY is Running on " "http://" + host + ":" + str(port))
